@@ -31,6 +31,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Run tests
 
+`javac -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar" Main.java Student.java StudentDAO.java`
+`java -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar;." Main`
+
+
 ### Deployment
 
 
