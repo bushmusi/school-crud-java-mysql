@@ -1,4 +1,4 @@
-public class Student {
+public class Instructor {
     private int id;
     private String fName;
     private String lName;
@@ -6,14 +6,18 @@ public class Student {
     private int age;
     private String gender;
     private String dept;
+    private String Salary;
+    private String Position;
 
-    public Student(String fName,String lName, int dOB, int age, String gender, String dept) {
+    public Instructor(String fName,String lName, int dOB, int age, String gender, String dept, String Salary, String Position) {
         this.fName = fName;
         this.lName = lName;
         this.dOB = dOB;
         this.gender = gender;
         this.age = age;
         this.dept = dept;
+        this.Salary = Salary;
+        this.Position = Position;
     }
     
 
@@ -78,5 +82,21 @@ public class Student {
 
     public void setDept(String dept) {
         this.dept = dept;
+    }
+
+    public String getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(String Salary) {
+        this.Salary = Salary;
+    }
+
+    public String getPosition() {
+        return Position;
+    }
+
+    public void setPosition(String Position) {
+        this.Position = Position;
     }
 }

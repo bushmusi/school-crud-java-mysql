@@ -9,42 +9,43 @@ import java.sql.Statement;
 
 
 
-public class StudentDAO {
+public class InstructorDAO {
     private Connection connection;
 
-    public StudentDAO(Connection connection) {
+    public InstructorDAO(Connection connection) {
         this.connection = connection;
     }
 
-    public Student create(Student student) throws SQLException {
-        String query = "INSERT INTO student (id, fName, lName, dOB, age, gender, dept) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public Instructor create(Instructor instructor) throws SQLException {
+        String query = "INSERT INTO instructor (fName, lName, dOB, age, gender, dept, position, salary) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, student.getId());
-            statement.setString(2, student.getfName());
-            statement.setString(3, student.getlName());
-            statement.setInt(4, student.getdOB());
-            int age = calculateAge(student.getdOB());
-            statement.setInt(5, age);
-            statement.setString(6, student.getGender());
-            statement.setString(7, student.getDept());
+            statement.setString(1, instructor.getfName());
+            statement.setString(2, instructor.getlName());
+            statement.setInt(3, instructor.getdOB());
+            int age = calculateAge(instructor.getdOB());
+            statement.setInt(4, age);
+            statement.setString(5, instructor.getGender());
+            statement.setString(6, instructor.getDept());
+            statement.setString(7, instructor.getPosition());
+            statement.setString(8, instructor.getSalary());
             statement.executeUpdate();
     
-            // Get the generated ID of the inserted student
+            // Get the generated ID of the inserted instructor
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int generatedId = generatedKeys.getInt(1);
-                    student.setId(generatedId);
+                    instructor.setId(generatedId);
                 }
             }
         }
     
-        return student;
+        return instructor;
     }
     
 
-    public List<Student> getAll() throws SQLException {
-        List<Student> students = new ArrayList<>();
-        String query = "SELECT * FROM student";
+    public List<Instructor> getAll() throws SQLException {
+        List<Instructor> instructors = new ArrayList<>();
+        String query = "SELECT * FROM instructor";
         try (PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
@@ -54,10 +55,12 @@ public class StudentDAO {
                 int age = resultSet.getInt("age");
                 String gender = resultSet.getString("gender");
                 String dept = resultSet.getString("dept");
-                students.add(new Student(fName, lName, dOB, age, gender, dept));
+                String position = resultSet.getString("position");
+                String salary = resultSet.getString("salary");
+                instructors.add(new Instructor(fName, lName, dOB, age, gender, dept, salary, position));
             }
         }
-        return students;
+        return instructors;
     }
     
     public int calculateAge(int yearOfBirth) throws SQLException {
