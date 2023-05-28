@@ -18,58 +18,67 @@ public class Main {
 
             // Create a Scanner object to read user input
             Scanner scanner = new Scanner(System.in);
+            
+            boolean exit = false;
+            
+            while (!exit) {
+                // Display the menu options
+                ListOperationType();
+                // Read the user's choice
+                int choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        ListStudentOptions();
+                        int studentChoice = scanner.nextInt();
+                        switch (studentChoice) {
+                            case 1:
+                                ListStudents(studentDAO);
+                                break;
+                            case 2:
+                                InsertStudent(studentDAO);
+                                break;
+                            default:
+                                System.out.println("Invalid choice!");
+                        }
+                        break;
+                    case 2:
+                        ListDeptOptions();
+                        int deptChoice = scanner.nextInt();
+                        switch (deptChoice) {
+                            case 1:
+                                LisDepts(deptDAO);
+                                break;
+                            case 2:
+                                InsertDept(deptDAO);
+                                break;
+                            default:
+                                System.out.println("Invalid choice!");
+                        }
+                        break;
+                    case 3:
+                        ListInstructorOptions();
+                        int instructorChoice = scanner.nextInt();
+                        switch (instructorChoice) {
+                            case 1:
+                                ListInstructors(instructorDAO);
+                                break;
+                            case 2:
+                                InsertInstructor(instructorDAO);
+                                break;
+                            default:
+                                System.out.println("Invalid choice!");
+                        }
+                        break;
+                    case 4:
+                        exit = true;  // Set the exit flag to true
+                        System.out.println("Exiting...");
+                        break;
+                    default:
+                        System.out.println("Invalid choice!");
+                }
 
-            // Display the menu options
-            ListOperationType();
-
-            // Read the user's choice
-            int choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    ListStudentOptions();
-                    int studentChoice = scanner.nextInt();
-                    switch (studentChoice) {
-                        case 1:
-                            ListStudents(studentDAO);
-                            break;
-                        case 2:
-                            InsertStudent(studentDAO);
-                            break;
-                        default:
-                            System.out.println("Invalid choice!");
-                    }
-                    break;
-                case 2:
-                    ListDeptOptions();
-                    int deptChoice = scanner.nextInt();
-                    switch (deptChoice) {
-                        case 1:
-                            LisDepts(deptDAO);
-                            break;
-                        case 2:
-                            InsertDept(deptDAO);
-                            break;
-                        default:
-                            System.out.println("Invalid choice!");
-                    }
-                    break;
-                case 3:
-                    ListInstructorOptions();
-                    int instructorChoice = scanner.nextInt();
-                    switch (instructorChoice) {
-                        case 1:
-                            ListInstructors(instructorDAO);
-                            break;
-                        case 2:
-                            InsertInstructor(instructorDAO);
-                            break;
-                        default:
-                            System.out.println("Invalid choice!");
-                    }
-                    break;
-                default:
-                    System.out.println("Invalid choice!");
             }
+
             scanner.close();
             // Close the database connection
             connection.close();
@@ -231,6 +240,7 @@ public class Main {
         System.out.println("1. Manage Students");
         System.out.println("2. Manage Department");
         System.out.println("3. Manage Instructor");
+        System.out.println("4. Exit");
         System.out.print("Enter your choice: ");
     }
 }
