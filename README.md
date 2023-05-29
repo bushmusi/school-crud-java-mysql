@@ -25,14 +25,31 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
+1. Visit the official Java website: https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
+
+2. On the Java SE Downloads page, select the appropriate version of the JDK (Java Development Kit) for your operating system. Choose the version that matches your system architecture (32-bit or 64-bit) and download the installer file.
+
+3. Once the download is complete, locate the installer file and run it.
+
+4. Follow the installation wizard instructions. You can generally accept the default settings unless you have specific requirements.
+
+5. During the installation, you may be asked to specify the installation directory. Choose a directory or accept the default location.
+
+6. After the installation is complete, verify the Java installation by opening a command prompt (Windows) or terminal (macOS/Linux) and typing the following command:
+
+Run `java -version`
+
 ### Install
+1. Install MySQL workbench here [Download](https://dev.mysql.com/downloads/connector/j/)
+2. Make sure you had **C:\Program Files\MySQL\mysql-connector-j-8.0.33** in this dirctory
+3. If you don't get the file extract attached zip file to above dirctory
 
 ### Usage
 
 ### Run tests
-
-`javac -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar" Main.java Student.java StudentDAO.java`
-`java -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar;." Main`
+1. `cd <your_project_dir>`
+2. `javac -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar" *.java`
+3. `java -cp "C:\Program Files\MySQL\mysql-connector-j-8.0.33\mysql-connector-j-8.0.33.jar;." Main`
 
 
 ### Deployment
