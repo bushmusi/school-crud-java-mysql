@@ -76,8 +76,8 @@ public class Main {
                     default:
                         System.out.println("Invalid choice!");
                 }
-
-            }
+        
+                }
 
             scanner.close();
             // Close the database connection
@@ -90,7 +90,7 @@ public class Main {
     public static void InsertStudent(StudentDAO studentDAO) throws SQLException {
                     // Get student data from the user
                     Scanner scanner = new Scanner(System.in);
-                    System.out.print("Enter first name: ");
+                    System.out.print("\nEnter first name: ");
                     String firstName = scanner.nextLine();
                     System.out.print("Enter last name: ");
                     String lastName = scanner.nextLine();
@@ -107,8 +107,6 @@ public class Main {
                     // Create the student in the database
                     Student createdStudent = studentDAO.create(student);
                     System.out.println("Student created with ID: " + createdStudent.getId());
-                    // Close the scanner and the database connection
-                    scanner.close();
     }
 
     public static void ListStudents(StudentDAO studentDAO) throws SQLException {
@@ -116,7 +114,7 @@ public class Main {
         List<Student> students = studentDAO.getAll();
 
         // Print the table header
-        System.out.println("+------------+-----------+-----+-------------+");
+        System.out.println("\n+------------+-----------+-----+-------------+");
         System.out.println("| First Name | Last Name | age | Department  |");
         System.out.println("+------------+-----------+-----+-------------+");
 
@@ -129,9 +127,8 @@ public class Main {
         System.out.println("+------------+-----------+-----+-------------+");
     }
     public static void InsertInstructor(InstructorDAO instructorDAO) throws SQLException {
-                    // Get student data from the user
                     Scanner scanner = new Scanner(System.in);
-                    System.out.print("Enter first name: ");
+                    System.out.print("\nEnter first name: ");
                     String firstName = scanner.nextLine();
                     System.out.print("Enter last name: ");
                     String lastName = scanner.nextLine();
@@ -152,8 +149,6 @@ public class Main {
                     // Create the instructor in the database
                     Instructor createdInstructor = instructorDAO.create(instructor);
                     System.out.println("Instructor created with ID: " + createdInstructor.getId());
-                    // Close the scanner and the database connection
-                    scanner.close();
     }
 
     public static void ListInstructors(InstructorDAO instructorDAO) throws SQLException {
@@ -161,7 +156,7 @@ public class Main {
         List<Instructor> instructors = instructorDAO.getAll();
 
         // Print the table header
-        System.out.println("+------------+-----------+-----+-------------+-----------+---------+");
+        System.out.println("\n+------------+-----------+-----+-------------+-----------+---------+");
         System.out.println("| First Name | Last Name | Age | Department  | Position  | Salary  |");
         System.out.println("+------------+-----------+-----+-------------+-----------+---------+");
 
@@ -177,7 +172,7 @@ public class Main {
     public static void InsertDept(DeptDAO deptDAO) throws SQLException {
                     // Get student data from the user
                     Scanner scanner = new Scanner(System.in);
-                    System.out.print("Enter name: ");
+                    System.out.print("\nEnter name: ");
                     String name = scanner.nextLine();
                     System.out.print("Enter phone: ");
                     String phone = scanner.nextLine();
@@ -191,8 +186,6 @@ public class Main {
                     // Create the dept in the database
                     Dept createdInstructor = deptDAO.create(dept);
                     System.out.println("Instructor created with ID: " + createdInstructor.getId());
-                    // Close the scanner and the database connection
-                    scanner.close();
     }
 
 
@@ -201,7 +194,7 @@ public class Main {
         List<Dept> depts = deptDAO.getAll();
 
         // Print the table header
-        System.out.println("+------------+-----------+----------+-------+");
+        System.out.println("\n+------------+-----------+----------+-------+");
         System.out.println("| Name       | Phone     | Location | Head  |");
         System.out.println("+------------+-----------+----------+-------+");
 
@@ -215,28 +208,28 @@ public class Main {
     }
 
     public static void ListStudentOptions() {
-        System.out.println("Student Menu:");
+        System.out.println("\nStudent Menu:");
         System.out.println("1. List Students");
         System.out.println("2. Insert Student");
         System.out.print("Enter your choice: ");
     }
 
     public static void ListInstructorOptions() {
-        System.out.println("Instructor Menu:");
+        System.out.println("\nInstructor Menu:");
         System.out.println("1. List Instructors");
         System.out.println("2. Insert Instructor");
         System.out.print("Enter your choice: ");
     }
 
     public static void ListDeptOptions() {
-        System.out.println("Department Menu:");
+        System.out.println("\nDepartment Menu:");
         System.out.println("1. List Departments");
         System.out.println("2. Insert Department");
         System.out.print("Enter your choice: ");
     }
 
     public static void ListOperationType() {
-        System.out.println("Menu:");
+        System.out.println("\nMenu:");
         System.out.println("1. Manage Students");
         System.out.println("2. Manage Department");
         System.out.println("3. Manage Instructor");
